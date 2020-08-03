@@ -8,9 +8,6 @@ public class Account {
 	//Every account has a ID different from the User ID
 	private String uuid;
 	
-	//Current balance of the account
-	private double balance;
-	
 	//Some user owns this account, links to that User. 
 	//...The User Object that owns this account
 	private User holder;
