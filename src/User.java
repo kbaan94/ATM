@@ -55,7 +55,20 @@ public class User {
 		this.accounts = new ArrayList<Account>();
 		
 		//Print a log message to know what our UUID is when logging into the ATM
-		System.out.printf("New user %s,%s with ID");
+		System.out.printf("New user %s,%s with ID", this.lastName, this.name, this.uuid);
 		
 	}
+	
+	//add account method
+	public void addAccount(Account anAcct) {
+		this.accounts.add(anAcct);  
+	}
+	
+	public String getUUID() {
+		return this.uuid;
+	}
+	
+	
+	
+	
 }

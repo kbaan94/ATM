@@ -14,5 +14,23 @@ public class Account {
 	
 	//List of transactions for this account
 	private ArrayList<Transaction> transactions;
+	
+	public Account(String name, User holder, Bank theBank) {
+		//set up name and the older
+		this.name = name;
+		this.holder = holder;
+		
+		this.uuid = theBank.getNewAccountUUID();
+		
+		//init transactions array
+		this.transactions = new ArrayList<Transaction>();
+		
+		//add this account to the holder and the bank list
+		holder.addAccount(this);
+		theBank.addAccount(this);
+	}
+	
+	
+	
 
 }

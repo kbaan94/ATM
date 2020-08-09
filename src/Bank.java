@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Bank {
 	
@@ -18,7 +19,42 @@ public class Bank {
 	private ArrayList<Account> accounts;
 	
 	public String getNewUserUUID() {
-		//
+		
+		//inits
+		String uuid;
+		Random rng = new Random();
+		int len = 10;
+		boolean notUnique;
+		
+		
+		do {
+			
+			//Create the ID during the first iteration
+			uuid = "";
+			for(int i = 0; i < len; i++) {
+				uuid += ((Integer)rng.nextInt(10)).toString();
+			}
+			
+			//Check if the ID is unique
+			notUnique = false;
+			for(User u : this.users) {
+				if(uuid.compareTo(u.getUUID()) == 0){
+					notUnique = true;
+					break;
+				}
+			}
+			
+		} while (notUnique);
+		
+		return uuid;
+		
+	}
+	
+	public String getNewAccountUUID() {
+		
+	}
+	public void addAccount(Account anAcct) {
+		this.accounts.add(anAcct);
 	}
 
 }
