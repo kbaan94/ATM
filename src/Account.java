@@ -29,6 +29,10 @@ public class Account {
 		holder.addAccount(this);
 		theBank.addAccount(this);
 	}
+
+	public String getUUID() {
+		return this.uuid;
+	}
 	
 	
 	

@@ -51,6 +51,33 @@ public class Bank {
 	}
 	
 	public String getNewAccountUUID() {
+		//inits
+				String uuid;
+				Random rng = new Random();
+				int len = 10;
+				boolean notUnique;
+				
+				
+				do {
+					
+					//Create the ID during the first iteration
+					uuid = "";
+					for(int i = 0; i < len; i++) {
+						uuid += ((Integer)rng.nextInt(10)).toString();
+					}
+					
+					//Check if the ID is unique
+					notUnique = false;
+					for(Account a : this.accounts) {
+						if(uuid.compareTo(a.getUUID()) == 0){
+							notUnique = true;
+							break;
+						}
+					}
+					
+				} while (notUnique);
+				
+				return uuid;
 		
 	}
 	public void addAccount(Account anAcct) {
